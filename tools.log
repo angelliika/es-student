@@ -1,15 +1,9 @@
 ﻿git version 2.51.0.windows.1
-python : Python 
-строка:2 знак:5
-+     python --version | Select-Object -First 1
-+     ~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (Python :String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
+Python 3.13.5
 cmake version 4.2.3
 GNU Make 3.81
 arm-none-eabi-gcc.exe (GNU Arm Embedded Toolchain 10.3-2021.10) 10.3.1 20210824 (release)
-code 1.125.1
-picotool v2.2.0-a4 (Windows, GNU-15.2.0, Release)
-pico-sdk 2.2.0
+code 1.137.0
+picotool v2.3.0 (Windows, GNU-16.1.0, Release)
+pico-sdk 2.3.0
 PICO_SDK_PATH=C:\Repositories\pico\pico-sdk
