@@ -25,7 +25,6 @@ def find_board():
 
 def listen(board):
     lines = []
-    
     with serial.Serial(board.device, timeout=1) as port:
         time.sleep(0.2)
         port.reset_input_buffer()
