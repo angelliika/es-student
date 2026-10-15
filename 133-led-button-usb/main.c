@@ -1,11 +1,11 @@
+#include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
-#include <stdio.h>
 
 const uint LED_PIN = 25;
 const uint BUTTON_PIN = 15;
-const uint DEBOUNCE_MS = 20;
 
+const uint DEBOUNCE_MS = 20;
 
 bool get_button_debounce(uint pin)
 {
@@ -14,14 +14,11 @@ bool get_button_debounce(uint pin)
     return state && gpio_get(pin);
 }
 
-
-
 void set_led(bool on)
 {
     gpio_put(LED_PIN, on);
     printf("led %s\n", on ? "on" : "off");
 }
-
 
 bool handle_command(int command, bool led)
 {
@@ -43,37 +40,33 @@ bool handle_command(int command, bool led)
     return led;
 }
 
-
-
-
 int main()
 {
     stdio_init_all();
 
     gpio_init(LED_PIN);
-   gpio_set_dir(LED_PIN, GPIO_OUT);
+    gpio_set_dir(LED_PIN, GPIO_OUT);
 
-   gpio_init(BUTTON_PIN);
-   gpio_set_dir(BUTTON_PIN, GPIO_IN);
-   gpio_pull_up(BUTTON_PIN);
+    gpio_init(BUTTON_PIN);
+    gpio_set_dir(BUTTON_PIN, GPIO_IN);
+    gpio_pull_up(BUTTON_PIN);
 
-   bool led = false;
-   bool previous = false;
+    bool led = false;
+    bool previous = false;
 
-   while (1)
-   {
+    while (1)
+    {
         bool current = get_button_debounce(BUTTON_PIN);
 
-       if (previous == true && current == false)
-       {
-           led = !led;
-           set_led(led);
-       }
+        if (previous == true && current == false)
+        {
+            led = !led;
+            set_led(led);
+        }
 
-       previous = current;
+        previous = current;
 
-
-       int command = getchar_timeout_us(0);
+        int command = getchar_timeout_us(0);
 
         if (command == PICO_ERROR_TIMEOUT)
         {
@@ -81,5 +74,5 @@ int main()
         }
 
         led = handle_command(command, led);
-   }
+    }
 }

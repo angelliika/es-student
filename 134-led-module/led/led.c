@@ -1,20 +1,21 @@
 #include "led.h"
+#include "hardware/gpio.h"
 
-static const uint LED_PIN = 25;
+const uint LED_PIN = 25;
+
 static bool led_state = false;
 
 void led_init(void)
 {
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
-    gpio_put(LED_PIN, 0);
-    led_state = false;
+    led_set(false);
 }
 
 void led_set(bool on)
 {
     led_state = on;
-    gpio_put(LED_PIN, on);
+    gpio_put(LED_PIN, led_state);
 }
 
 void led_toggle(void)

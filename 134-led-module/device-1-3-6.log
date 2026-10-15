@@ -2,14 +2,18 @@
 проект: 134-led-module
 устройство: 2e8a:000a
 серийный номер: 5003181470635E1C
-порт: COM10
-начало: 2026-10-08T00:54:40
+порт: COM5
+начало: 2026-10-08T16:06:29
    0.000 --> v
-   0.002 <-- unknown command: v
-   1.006 --> e
-   1.022 <-- led on
-   2.035 --> d
-   2.042 <-- led off
-   3.043 --> q
-   3.063 <-- unknown command: q
+   0.008 <-- dbg main:70 got v
+   0.009 <-- device: es-led-module 1.0.0, built Oct  8 2026 16:05:50, log level 3
+   1.010 --> e
+   1.029 <-- dbg main:70 got e
+   1.029 <-- inf handle_command:22 led on
+   2.033 --> d
+   2.049 <-- dbg main:70 got d
+   2.049 <-- inf handle_command:27 led off
+   3.060 --> q
+   3.069 <-- dbg main:70 got q
+   3.070 <-- err handle_command:35 unknown command: q
 итог: отправлено команд 4
